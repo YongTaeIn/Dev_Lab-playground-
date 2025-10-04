@@ -1,0 +1,36 @@
+# 파일명 : docker_compose.yml
+# pwd : 'docker_compose.yml' 의 상위 디렉토리
+# 실행법 : 
+# 신버전) docker compose -f docker_compose.yml up -d
+# 구버전) docker-compose -f docker_compose.yml up -d
+
+# service 하위에 kafka, kafka-ui를 구성함
+
+version: "3.8"
+services:
+  kafka:
+    image: bitnami/kafka:3.7
+    container_name: kafka
+    ports:
+      - "9092:9092" # 호스트 포트: 컨테이너 내부 포트(kafka 브로커 포트)
+    environment:
+      # KRaft 모드 (브로커 + 컨트롤러 역할 동시 수행)
+      - KAFKA_CFG_PROCESS_ROLES=broker,controller
+      - KAFKA_CFG_NODE_ID=1
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@kafka:9093
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "8080:8080"  #  호스트 포트 : 컨테이너의 내부 포트(kafka UI 웹포트)/ 브라우저에서 localhost:8080 접속
+    environment: # kafka UI 설정을 위한 환경변수 정의
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+    depends_on: #kafka 서비스가 먼저 시작된 후에 UI가 시작되도록 의존성 설정
+      - kafka
