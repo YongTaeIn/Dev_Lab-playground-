@@ -1,0 +1,10 @@
+name: kafka_ver_1
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - kafka-python==2.0.2
+
