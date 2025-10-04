@@ -20,7 +20,7 @@ Kafka_Flink_example/
 ├── Flink/
 │   ├── flink_kafka_pipeline.py                  # Flink 스트림 처리 파이프라인
 │   └── flink-sql-connector-kafka-*.jar          # Kafka 커넥터 (필수)
-└── readme.md
+└── readme.md                  # 실습 가이드
 ```
 
 ## 🔄 데이터 흐름 (전체 파이프라인)
@@ -142,6 +142,24 @@ processed-topic:0:2: key=None, value=Processed: hello 2
 ```
 
 Flink가 처리한 데이터를 실시간으로 받아옵니다! 📥
+
+### Step 6: 전체 시스템 종료
+
+실습을 마쳤다면 모든 컨테이너와 데이터를 정리합니다:
+
+```bash
+cd Kafka_Flink_example/Kafka
+docker compose down -v
+```
+
+**`-v` 옵션의 의미:**
+- 컨테이너 중지 및 삭제
+- 네트워크 제거
+- **볼륨 삭제** (Kafka에 저장된 모든 메시지 데이터 삭제)
+
+**주의:** `-v` 옵션을 사용하면 Kafka에 저장된 모든 토픽과 메시지가 완전히 삭제됩니다. 다음 실습 시 깨끗한 상태에서 시작할 수 있습니다.
+
+> 💡 **Tip**: 데이터를 유지하고 싶다면 `-v` 없이 `docker compose down`만 사용하세요.
 
 ## 🎓 핵심 개념 이해하기
 
@@ -284,16 +302,13 @@ pip install apache-flink
 ### 4. JAR 파일 경로 오류
 → `flink-sql-connector-kafka-3.1.0-1.18.jar` 파일이 `Flink/` 폴더에 있는지 확인
 
-## 🛑 종료 방법
+## 🛑 종료 및 정리
 
-### 1. Python 프로그램 종료
-각 터미널에서 `Ctrl + C` 입력
+### Python 프로그램 종료
+각 터미널에서 `Ctrl + C` 입력하여 실행 중인 프로그램들을 종료합니다.
 
-### 2. Kafka 브로커 종료
-```bash
-cd Kafka
-docker compose down
-```
+### 전체 시스템 정리
+위의 **Step 6**을 참고하여 Docker 컨테이너와 데이터를 정리하세요.
 
 ## 💡 실험 아이디어
 
