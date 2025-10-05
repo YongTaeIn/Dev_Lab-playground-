@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0.18
+    container_name: mqtt-broker
+    ports:
+      - "1883:1883"      # MQTT 기본 포트
+      - "20518:1883"     # 코드에서 사용하는 포트 매핑
+      - "9001:9001"      # WebSocket (선택사항)
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    restart: unless-stopped
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:
