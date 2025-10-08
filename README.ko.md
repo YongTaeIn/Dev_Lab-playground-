@@ -123,6 +123,41 @@ Python asyncio
 
 ---
 
+### 4️⃣ [MQTT & AMQP Example](./MQTT_AMQP_example)
+
+**메시지 큐 프로토콜 비교**
+
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![MQTT](https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=mqtt&logoColor=white)](https://mqtt.org/)
+[![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)](https://www.rabbitmq.com/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Conda](https://img.shields.io/badge/Conda-44A833?style=for-the-badge&logo=anaconda&logoColor=white)](https://docs.conda.io/)
+
+**🎯 학습 목표**  
+MQTT와 AMQP 프로토콜을 이해하고, 메시징 패턴을 비교하며, IoT와 엔터프라이즈 메시징 시스템 구현
+
+**📦 기술 스택**  
+MQTT (Paho + Mosquitto), AMQP (Pika + RabbitMQ), Docker, Conda
+
+**💼 실제 사용 사례**
+```
+• IoT 센서 데이터 수집 (MQTT)
+  → 온도 센서가 MQTT 브로커에 발행 → 모바일 앱이 구독하여 실시간 데이터 표시
+
+• 스마트 홈 자동화 (MQTT)
+  → 사용자가 앱으로 명령 전송 → MQTT 브로커 → 스마트 기기가 명령 실행
+
+• 마이크로서비스 통신 (AMQP)
+  → 주문 서비스 → RabbitMQ 큐 → 결제 서비스 → 배송 서비스 (전달 보장)
+
+• 작업 큐 시스템 (AMQP)
+  → 웹 서버가 백그라운드 작업 발행 → 워커 프로세스가 큐에서 소비하여 실행
+```
+
+[📖 상세 가이드 보기](./MQTT_AMQP_example/README.ko.md)
+
+---
+
 ## 🚀 빠른 시작
 
 ### 설치 가이드
@@ -133,7 +168,7 @@ git clone https://github.com/YongTaeIn/Dev_Lab-playground-.git
 cd Dev_Lab-playground-
 
 # 2. 원하는 프로젝트 선택
-cd kafka_example  # or kafka_flink_example, python_asyncio_example
+cd kafka_example  # or kafka_flink_example, python_asyncio_example, MQTT_AMQP_example
 
 # 3. README.md 확인하여 실행
 cat readme.md
@@ -145,11 +180,12 @@ cat readme.md
 
 ### 🔧 기술 스택 비교
 
-| 프로젝트 | Python | Kafka | Flink | Docker | Conda |
-|---------|--------|-------|-------|--------|-------|
-| **Kafka Example** | ✅ | ✅ | ❌ | ✅ | ✅ |
-| **Kafka + Flink** | ✅ | ✅ | ✅ | ✅ | ❌ |
-| **Python Asyncio** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 프로젝트 | Python | Kafka | Flink | MQTT | AMQP | Docker | Conda |
+|---------|--------|-------|-------|------|------|--------|-------|
+| **Kafka Example** | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ |
+| **Kafka + Flink** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| **Python Asyncio** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **MQTT & AMQP** | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
 
 ---
 

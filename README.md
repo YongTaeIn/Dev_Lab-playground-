@@ -123,6 +123,41 @@ Python asyncio
 
 ---
 
+### 4️⃣ [MQTT & AMQP Example](./MQTT_AMQP_example)
+
+**Message Queue Protocols Comparison**
+
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![MQTT](https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=mqtt&logoColor=white)](https://mqtt.org/)
+[![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)](https://www.rabbitmq.com/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Conda](https://img.shields.io/badge/Conda-44A833?style=for-the-badge&logo=anaconda&logoColor=white)](https://docs.conda.io/)
+
+**🎯 Learning Objectives**  
+Understand MQTT and AMQP protocols, compare messaging patterns, and implement IoT and enterprise messaging systems
+
+**📦 Tech Stack**  
+MQTT (Paho + Mosquitto), AMQP (Pika + RabbitMQ), Docker, Conda
+
+**💼 Real-World Use Cases**
+```
+• IoT sensor data collection (MQTT)
+  → Temperature sensors publish to MQTT broker → Mobile app subscribes and displays real-time data
+
+• Smart home automation (MQTT)
+  → User commands via app → MQTT broker → Smart devices execute commands
+
+• Microservices communication (AMQP)
+  → Order service → RabbitMQ queue → Payment service → Shipping service (guaranteed delivery)
+
+• Task queue system (AMQP)
+  → Web server publishes background jobs → Worker processes consume from queue and execute
+```
+
+[📖 View Detailed Guide](./MQTT_AMQP_example/README.md)
+
+---
+
 ## 🚀 Quick Start
 
 ### Installation Guide
@@ -133,7 +168,7 @@ git clone https://github.com/YongTaeIn/Dev_Lab-playground-.git
 cd Dev_Lab-playground-
 
 # 2. Select desired project
-cd kafka_example  # or kafka_flink_example, python_asyncio_example
+cd kafka_example  # or kafka_flink_example, python_asyncio_example, MQTT_AMQP_example
 
 # 3. Check README.md and run
 cat readme.md
@@ -145,11 +180,12 @@ cat readme.md
 
 ### 🔧 Tech Stack Comparison
 
-| Project | Python | Kafka | Flink | Docker | Conda |
-|---------|--------|-------|-------|--------|-------|
-| **Kafka Example** | ✅ | ✅ | ❌ | ✅ | ✅ |
-| **Kafka + Flink** | ✅ | ✅ | ✅ | ✅ | ❌ |
-| **Python Asyncio** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Project | Python | Kafka | Flink | MQTT | AMQP | Docker | Conda |
+|---------|--------|-------|-------|------|------|--------|-------|
+| **Kafka Example** | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ |
+| **Kafka + Flink** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| **Python Asyncio** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **MQTT & AMQP** | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
 
 ---
 
