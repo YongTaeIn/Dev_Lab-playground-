@@ -89,41 +89,7 @@ Kafka, Flink, Docker, Python
 
 ---
 
-### 3️⃣ [Python Asyncio Example](./python_asyncio_example)
-
-**Python Asynchronous Programming**
-
-[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-
-**🎯 Learning Objectives**  
-Master Python asyncio fundamentals and understand performance optimization
-
-**📦 Tech Stack**  
-Python asyncio
-
-**💼 Real-World Use Cases**
-```
-• API server development
-  → Build high-performance async web servers using FastAPI, aiohttp
-  → Handle thousands of concurrent requests
-
-• Web crawling/scraping
-  → Crawl hundreds of web pages simultaneously
-  → 10x+ speed improvement over sequential processing
-
-• Database batch operations
-  → Execute multiple DB queries concurrently
-  → Minimize I/O wait time
-
-• External API calls
-  → Call multiple external service APIs simultaneously to reduce response time
-```
-
-[📖 View Detailed Guide](./python_asyncio_example/readme.md)
-
----
-
-### 4️⃣ [MQTT & AMQP Example](./MQTT_AMQP_example)
+### 3️⃣ [MQTT & AMQP Example](./MQTT_AMQP_example)
 
 **Message Queue Protocols Comparison**
 
@@ -169,7 +135,7 @@ git clone https://github.com/YongTaeIn/Dev_Lab-playground-.git
 cd Dev_Lab-playground-
 
 # 2. Select desired project
-cd kafka_example  # or kafka_flink_example, python_asyncio_example, MQTT_AMQP_example
+cd kafka_example  # or kafka_flink_example, MQTT_AMQP_example
 
 # 3. Check README.md and run
 cat readme.md
@@ -185,7 +151,6 @@ cat readme.md
 |---------|--------|-------|-------|------|------|--------|-------|
 | **Kafka Example** | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ |
 | **Kafka + Flink** | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| **Python Asyncio** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **MQTT & AMQP** | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
 
 ---
